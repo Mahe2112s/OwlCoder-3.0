@@ -28,7 +28,7 @@ void BFS(vector<int>adj[],int node,vector<int>&minpath){
     }
 }
     vector<int> shortestPath(vector<vector<int>>& edges, int N,int M, int src){
-        vector<int>minpath(N+1,-1);
+        vector<int>minpath(N,-1);
         vector<int>adj[N+1];
         int e=edges.size();
         for(int i=0;i<e;i++)
@@ -40,9 +40,6 @@ void BFS(vector<int>adj[],int node,vector<int>&minpath){
             adj[v].push_back(u);
         }
         BFS(adj,src,minpath);
-        minpath.pop_back();
-        // if(minpath[0]==-1)  minpath.erase(minpath.begin()+0);
-        // else minpath.pop_back();
         return minpath;
         
         
